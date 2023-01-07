@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"log"
+	"myapp/rps"
 	"net/http"
 )
 
@@ -15,7 +16,8 @@ func homePage(w http.ResponseWriter, r *http.Request) {
 }
 
 func playRound(w http.ResponseWriter, r *http.Request) {
-
+	winner, computerChoice, roundResult := rps.PlayRound(1)
+	log.Println(winner, computerChoice, roundResult)
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string) {
